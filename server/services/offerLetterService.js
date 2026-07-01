@@ -125,11 +125,7 @@ class OfferLetterService {
         doc.fontSize(10)
            .font('Helvetica')
            .fillColor('#000000')
-           .text('+91 9313469100', 50, footerY)
-           .moveDown(0.5)
-           .text('www.nextgenz.tech')
-           .moveDown(0.5)
-           .text('nextgenztech.admin@gmail.com');
+           .text('+91 9313469100\nwww.reallygreatsite.com\nnextgenztech.admin@gmail.com', 50, footerY, { lineGap: 5 });
            
         // 5. Signature (Right)
         try {
