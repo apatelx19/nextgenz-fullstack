@@ -33,6 +33,7 @@ module.exports = (data) => {
           <tr><th>College</th><td>${data.college}</td></tr>
           <tr><th>Course</th><td>${data.course} (Year ${data.year})</td></tr>
           <tr><th>Domain</th><td>${data.domain}</td></tr>
+          <tr><th>Plan Selected</th><td>${data.plan === '199' ? '₹199 / month' : data.plan === '499' ? '₹499 / 3 months' : data.plan}</td></tr>
           <tr><th>Payment ID</th><td style="font-family: monospace; color: #6c63ff;">${data.paymentId}</td></tr>
         </table>
 
