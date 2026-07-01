@@ -101,11 +101,9 @@ class OfferLetterService {
            
         doc.moveDown(1);
         
-        const durationText = applicationData.plan === '199' ? '1 Month' : applicationData.plan === '499' ? '3 Months' : applicationData.plan;
-        
         doc.text(`This internship program is designed to span a duration of `)
            .font('Helvetica-Bold')
-           .text(`${durationText}`, { continued: true })
+           .text(`1 Month`, { continued: true })
            .font('Helvetica')
            .text(`. During this time, you will work on real-world projects, gain hands-on experience, and be mentored by our expert team. Your expected start date will be communicated to you shortly.`);
            
