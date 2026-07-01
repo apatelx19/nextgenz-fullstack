@@ -18,25 +18,34 @@ class OfferLetterService {
           const pdfData = Buffer.concat(buffers);
           resolve(pdfData);
         });
+        
+        const path = require('path');
+        const msmePath = path.join(__dirname, '../assets/msme_logo.png');
+        const signaturePath = path.join(__dirname, '../assets/signature.png');
 
         // 1. Header & Branding
         doc.fillColor('#FF4D00')
            .fontSize(28)
            .font('Helvetica-Bold')
-           .text('NextGenZ Tech', { align: 'center' });
+           .text('NextGenZ Tech', 50, 50, { align: 'left' });
            
-        doc.moveDown(0.5);
+        doc.moveDown(0.2);
         
         doc.fillColor('#444444')
            .fontSize(12)
            .font('Helvetica')
-           .text('Empowering the Next Generation of Developers', { align: 'center' });
+           .text('Empowering the Next Generation of Developers', 50, 85, { align: 'left' });
            
-        doc.moveDown(2);
-        
+        // MSME Badge (Top Right)
+        try {
+          doc.image(msmePath, 400, 40, { width: 140 });
+        } catch (e) {
+          console.error("Missing MSME logo", e);
+        }
+           
         // Separator line
-        doc.moveTo(50, doc.y)
-           .lineTo(545, doc.y)
+        doc.moveTo(50, 130)
+           .lineTo(545, 130)
            .strokeColor('#FF4D00')
            .lineWidth(2)
            .stroke();
@@ -44,27 +53,42 @@ class OfferLetterService {
         doc.moveDown(2);
 
         // 2. Date & Salutation
+        doc.y = 170;
         const currentDate = new Date().toLocaleDateString('en-US', {
           year: 'numeric', month: 'long', day: 'numeric'
         });
         
-        doc.fillColor('#333333')
+        doc.fillColor('#000000')
            .fontSize(11)
-           .text(`Date: ${currentDate}`, { align: 'right' });
+           .font('Helvetica-Bold')
+           .text(`Date: ${currentDate}`, 50, doc.y, { align: 'left' });
            
         doc.moveDown(2);
         
-        doc.fontSize(16)
+        doc.fontSize(20)
            .font('Helvetica-Bold')
-           .text('OFFER OF INTERNSHIP', { align: 'center', underline: true });
+           .text('INTERNSHIP OFFER LETTER', { align: 'center' });
            
         doc.moveDown(2);
         
         doc.fontSize(12)
            .font('Helvetica-Bold')
+           .text('To:');
+        doc.text(`${applicationData.fullName}`);
+           
+        doc.moveDown(2);
+        
+        doc.fontSize(11)
+           .font('Helvetica-Bold')
+           .text(`Subject: Offer for the Position of ${applicationData.domain}`);
+           
+        doc.moveDown(2);
+        
+        doc.fontSize(12)
+           .font('Helvetica')
            .text(`Dear ${applicationData.fullName},`);
            
-        doc.moveDown(1);
+        doc.moveDown(1.5);
         
         // 3. Body Text
         doc.font('Helvetica')
@@ -95,20 +119,32 @@ class OfferLetterService {
 
         doc.moveDown(3);
         
-        // 4. Signatory
-        doc.font('Helvetica-Bold')
-           .text('Sincerely,');
+        const footerY = 700;
+        
+        // 4. Footer Details (Left)
+        doc.fontSize(10)
+           .font('Helvetica')
+           .fillColor('#000000')
+           .text('+91 9313469100', 50, footerY)
+           .moveDown(0.5)
+           .text('www.nextgenz.tech')
+           .moveDown(0.5)
+           .text('nextgenztech.admin@gmail.com');
            
-        doc.moveDown(1.5);
+        // 5. Signature (Right)
+        try {
+          doc.image(signaturePath, 420, footerY - 40, { width: 100 });
+        } catch (e) {
+          console.error("Missing signature logo", e);
+        }
         
         doc.font('Helvetica-Bold')
-           .fillColor('#FF4D00')
-           .text('NextGenZ Tech Team');
+           .fontSize(12)
+           .text('Patel Arya', 420, footerY + 20, { align: 'center', width: 100 });
            
-        doc.fillColor('#444444')
-           .font('Helvetica')
+        doc.font('Helvetica-Bold')
            .fontSize(10)
-           .text('Administration & HR Department');
+           .text('Ceo / Founder', 420, footerY + 35, { align: 'center', width: 100 });
 
         // Finalize the PDF
         doc.end();
