@@ -223,7 +223,7 @@ proceedPaymentBtn.addEventListener('click', () => {
     if (upiMobileBtn) upiMobileBtn.href = upiString;
     
     // Generate QR using API
-    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiString)}`;
+    const qrApiUrl = `https://quickchart.io/qr?text=${encodeURIComponent(upiString)}&size=250`;
     const qrImage = document.getElementById("upi-qr-image");
     if (qrImage) qrImage.src = qrApiUrl;
     
