@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <!-- CSS -->
   <link rel="stylesheet" href="dashboard.css">
 </head>
@@ -29,7 +32,10 @@
       </div>
       <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" required placeholder="••••••••">
+        <div style="position: relative;">
+          <input type="password" id="password" required placeholder="••••••••" style="width: 100%; padding-right: 40px;">
+          <i class="fas fa-eye" id="togglePassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+        </div>
       </div>
       <button type="submit" id="loginBtn" class="btn primary-btn">
         <span>Login to Dashboard</span>

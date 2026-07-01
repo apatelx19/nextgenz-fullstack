@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default to 1-5 stars if no data
     const completeStats = [1, 2, 3, 4, 5].map(star => {
       const match = reviewStats.find(r => r._id === star);
-      return { star: \`\${star} ⭐\`, count: match ? match.count : 0 };
+      return { star: `${star} ⭐`, count: match ? match.count : 0 };
     });
 
     reviewChartInstance = new Chart(ctx, {
