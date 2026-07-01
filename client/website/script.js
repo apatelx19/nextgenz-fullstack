@@ -195,31 +195,52 @@ form.addEventListener("submit", (e) => {
 });
 
 proceedPaymentBtn.addEventListener('click', () => {
-  privacyModal.classList.remove('show');
-  
-  // Calculate price based on plan
-  let amount = 299; // default Gold
-  const plan = document.getElementById("selectedPlan").value;
-  if (plan === "Normal") amount = 199;
-  else if (plan === "Premium") amount = 399;
-  
-  document.getElementById("upi-amount").textContent = amount;
-  
-  // Generate UPI URI and QR code
-  const upiId = "aryajpatelssk@oksbi";
-  const upiName = "NextGenZ Tech";
-  const upiString = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(upiName)}&am=${amount}&cu=INR`;
-  
-  // Set Mobile Deep Link
-  document.getElementById("upi-deep-link").href = upiString;
-  document.getElementById("upi-mobile-button").href = upiString;
-  
-  // Generate QR using API
-  const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiString)}`;
-  document.getElementById("upi-qr-image").src = qrApiUrl;
-  
-  // Show UPI Modal
-  document.getElementById("upi-modal").classList.add('show');
+  try {
+    privacyModal.classList.remove('show');
+    
+    // Calculate price based on plan
+    let amount = 299; // default Gold
+    const planEl = document.getElementById("selectedPlan");
+    if (planEl) {
+      const plan = planEl.value;
+      if (plan === "Normal") amount = 199;
+      else if (plan === "Premium") amount = 399;
+    }
+    
+    const upiAmountEl = document.getElementById("upi-amount");
+    if (upiAmountEl) upiAmountEl.textContent = amount;
+    
+    // Generate UPI URI and QR code
+    const upiId = "aryajpatelssk@oksbi";
+    const upiName = "NextGenZ Tech";
+    const upiString = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(upiName)}&am=${amount}&cu=INR`;
+    
+    // Set Mobile Deep Link
+    const upiDeepLink = document.getElementById("upi-deep-link");
+    if (upiDeepLink) upiDeepLink.href = upiString;
+    
+    const upiMobileBtn = document.getElementById("upi-mobile-button");
+    if (upiMobileBtn) upiMobileBtn.href = upiString;
+    
+    // Generate QR using API
+    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiString)}`;
+    const qrImage = document.getElementById("upi-qr-image");
+    if (qrImage) qrImage.src = qrApiUrl;
+    
+    // Show UPI Modal after a tiny delay to prevent browser layout crash
+    setTimeout(() => {
+      const upiModal = document.getElementById("upi-modal");
+      if (upiModal) {
+        upiModal.classList.add('show');
+      } else {
+        alert("⚠️ Payment modal could not be loaded.");
+      }
+    }, 50);
+    
+  } catch (err) {
+    console.error(err);
+    alert("⚠️ An error occurred loading the payment portal: " + err.message);
+  }
 });
 
 // Handle UPI Modal
