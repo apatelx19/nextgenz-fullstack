@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGenZ Tech - Dashboard</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        NextGenZ
+      </div>
+      <ul class="nav-links">
+        <li class="active" data-view="dashboard"><i class="fas fa-chart-pie" style="margin-right: 8px;"></i> Dashboard</li>
+        <li data-view="applications"><i class="fas fa-users" style="margin-right: 8px;"></i> Applications</li>
+        <li data-view="reviews"><i class="fas fa-star" style="margin-right: 8px;"></i> Reviews</li>
+      </ul>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn danger-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <h2>Overview</h2>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <select id="globalDateFilter" class="input-group" style="min-width: 150px; padding: 8px 12px; margin: 0; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 4px; color: #fff; font-family: var(--font-mono); font-size: 0.8rem;">
+            <option value="all">All Time</option>
+            <option value="today">Today</option>
+            <option value="7days">Last 7 Days</option>
+            <option value="30days">Last 30 Days</option>
+            <option value="thisMonth">This Month</option>
+            <option value="thisYear">This Year</option>
+          </select>
+          <div class="admin-profile">Admin</div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        
+        <!-- Dashboard Analytics View -->
+        <div id="dashboardView">
+          <!-- Stats Section -->
+          <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--accent-color);">📊</div>
+              <div class="stat-content">
+                <div class="stat-title">Total Applications</div>
+                <div class="stat-value counter" id="statTotal">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--warning);">💰</div>
+              <div class="stat-content">
+                <div class="stat-title">Total Revenue</div>
+                <div class="stat-value counter" id="statRevenue">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--success);">📅</div>
+              <div class="stat-content">
+                <div class="stat-title">Today</div>
+                <div class="stat-value counter" id="statToday">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--accent-color);">📈</div>
+              <div class="stat-content">
+                <div class="stat-title">This Month</div>
+                <div class="stat-value counter" id="statThisMonth">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--warning);">⏳</div>
+              <div class="stat-content">
+                <div class="stat-title">Pending</div>
+                <div class="stat-value counter" id="statPending">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--success);">✅</div>
+              <div class="stat-content">
+                <div class="stat-title">Selected</div>
+                <div class="stat-value counter" id="statSelected">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--danger);">❌</div>
+              <div class="stat-content">
+                <div class="stat-title">Rejected</div>
+                <div class="stat-value counter" id="statRejected">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--accent-color);">🎓</div>
+              <div class="stat-content">
+                <div class="stat-title">Active Batches</div>
+                <div class="stat-value counter" id="statActiveBatches">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--warning);">⭐</div>
+              <div class="stat-content">
+                <div class="stat-title">Total Reviews</div>
+                <div class="stat-value counter" id="statTotalReviews">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--warning);">⏳</div>
+              <div class="stat-content">
+                <div class="stat-title">Pending Reviews</div>
+                <div class="stat-value counter" id="statPendingReviews">-</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="color: var(--success);">📈</div>
+              <div class="stat-content">
+                <div class="stat-title">Avg Rating</div>
+                <div class="stat-value counter" id="statAvgRating">-</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="analytics-layout">
+            <div class="chart-container full-width">
+              <h3>Applications Trend</h3>
+              <canvas id="trendChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Revenue Trend</h3>
+              <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Status Distribution</h3>
+              <canvas id="statusChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Top Domains</h3>
+              <canvas id="domainChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Review Distribution</h3>
+              <canvas id="reviewChart"></canvas>
+            </div>
+            <div class="activity-feed">
+              <h3>Recent Activity</h3>
+              <div id="activityContainer" class="feed-container">
+                <!-- JS Populated -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications Table View (Hidden by default) -->
+        <div id="applicationsView" style="display: none;">
+          <!-- Table Section -->
+          <div class="table-container">
+            <div class="table-header">
+              <h3>Recent Applications</h3>
+              <div class="controls">
+                <input type="text" id="searchInput" placeholder="Search name/email..." class="input-group">
+                <select id="batchFilter" class="input-group">
+                  <option value="">All Batches</option>
+                  <option value="July 2026">July 2026</option>
+                  <option value="August 2026">August 2026</option>
+                </select>
+                <select id="statusFilter" class="input-group">
+                  <option value="">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Under Review">Under Review</option>
+                  <option value="Shortlisted">Shortlisted</option>
+                  <option value="Interview Scheduled">Interview Scheduled</option>
+                  <option value="Selected">Selected</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+                <button class="btn primary-btn" id="exportPdfBtn" style="padding: 10px 18px;"><i class="fas fa-file-pdf"></i> Export PDF</button>
+                <button class="btn primary-btn" id="exportCsvBtn" style="padding: 10px 18px;"><i class="fas fa-file-csv"></i> Export CSV</button>
+              </div>
+            </div>
+            
+            <table id="applicationsTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Domain</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- JS Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Reviews Table View (Hidden by default) -->
+        <div id="reviewsView" style="display: none;">
+          <div class="table-container">
+            <div class="table-header">
+              <h3>Reviews Management</h3>
+              <div class="controls">
+                <select id="reviewStatusFilter" class="input-group">
+                  <option value="">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+            
+            <table id="reviewsTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Rating</th>
+                  <th>Review</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reviewsTableBody">
+                <!-- JS Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Application Details Modal -->
+  <div id="appModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalName">Applicant Name</h2>
+      <div class="badge" id="modalStatusBadge" style="margin-bottom: 20px;">Status</div>
+      
+      <div class="modal-grid">
+        <div class="detail-item"><strong>Email</strong><span id="modalEmail"></span></div>
+        <div class="detail-item"><strong>Phone</strong><span id="modalPhone"></span></div>
+        <div class="detail-item"><strong>College</strong><span id="modalCollege"></span></div>
+        <div class="detail-item"><strong>Course & Year</strong><span id="modalCourse"></span></div>
+        <div class="detail-item"><strong>Domain</strong><span id="modalDomain"></span></div>
+        <div class="detail-item"><strong>Payment ID</strong><span id="modalPayment"></span></div>
+        <div class="detail-item" style="grid-column: span 2;">
+          <strong>Resume</strong>
+          <div style="display: flex; gap: 10px; margin-top: 5px;">
+            <a href="#" id="modalResume" target="_blank" class="btn primary-btn" style="padding: 6px 18px; font-size: 0.85rem; width: auto;"><i class="fas fa-external-link-alt"></i> View PDF</a>
+            <a href="#" id="modalResumeDownload" download class="btn" style="padding: 6px 18px; font-size: 0.85rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #fff; text-decoration: none; width: auto;"><i class="fas fa-download"></i> Download</a>
+          </div>
+        </div>
+        <div class="detail-item" style="grid-column: span 2;"><strong>Why Join Us?</strong><p id="modalWhy" style="background: rgba(0,0,0,0.25); padding: 16px; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.9rem; line-height: 1.6;"></p></div>
+      </div>
+
+      <div class="modal-actions">
+        <select id="updateStatusSelect">
+          <option value="Pending">Pending</option>
+          <option value="Under Review">Under Review</option>
+          <option value="Shortlisted">Shortlisted</option>
+          <option value="Interview Scheduled">Interview Scheduled</option>
+          <option value="Selected">Selected</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <button id="updateStatusBtn" class="btn primary-btn"><i class="fas fa-save"></i> Update Status</button>
+        <button id="deleteAppBtn" class="btn danger-btn" style="border: 1px solid var(--danger);"><i class="fas fa-trash-alt"></i> Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status History Modal -->
+  <div id="historyModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+      <span class="close" id="closeHistoryModal">&times;</span>
+      <h2>Status History</h2>
+      <div id="historyTimeline" class="timeline">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

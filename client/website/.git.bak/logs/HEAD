@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 b57fbb127684b969a78d782a537b6bcb8431c1ed Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782910831 +0530	commit (initial): Deploy to GitHub Pages
+b57fbb127684b969a78d782a537b6bcb8431c1ed 0000000000000000000000000000000000000000 Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782910834 +0530	Branch: renamed refs/heads/master to refs/heads/gh-pages
+0000000000000000000000000000000000000000 b57fbb127684b969a78d782a537b6bcb8431c1ed Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782910834 +0530	Branch: renamed refs/heads/master to refs/heads/gh-pages
+b57fbb127684b969a78d782a537b6bcb8431c1ed 31ff744c456c91ac6dac43a7470a7339831b299e Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782911053 +0530	commit: Add assets folder
+31ff744c456c91ac6dac43a7470a7339831b299e 88a9a709f3ba01639b37d2f0a0d63f6f78c31545 Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782912918 +0530	commit: Switch to Manual UPI Payments
+88a9a709f3ba01639b37d2f0a0d63f6f78c31545 a8cb33569b403486ea58f806bf800224b685adc5 Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782913290 +0530	commit: Inject actual UPI ID
+a8cb33569b403486ea58f806bf800224b685adc5 60059cfd18f1b4aa6e184e8f583a207c6bdd9814 Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782917610 +0530	commit: Revert back to Cashfree Payment Gateway
+60059cfd18f1b4aa6e184e8f583a207c6bdd9814 a8cb33569b403486ea58f806bf800224b685adc5 Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782917694 +0530	reset: moving to a8cb335
+a8cb33569b403486ea58f806bf800224b685adc5 a63bf435479fbdf2b1aa112a18a643ab83dd6add Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782918067 +0530	commit: Add Dynamic UPI QR Code and deep link
+a63bf435479fbdf2b1aa112a18a643ab83dd6add 2eeabc7bfc44ba2ae3b726feb27e626f57f4ce70 Patel Arya <286640538+apatelx19@users.noreply.github.com> 1782918421 +0530	commit: Fix UPI modal CSS class

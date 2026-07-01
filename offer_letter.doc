@@ -1,0 +1,63 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Internship Offer Letter</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+    <h1 style="text-align: center; color: #a855f7;">NextGenZ Tech</h1>
+    <h2 style="border-bottom: 1px solid #ccc; padding-bottom: 10px;">Internship Offer Letter</h2>
+    
+    <p><strong>Date:</strong> [Current Date]<br>
+    <strong>To:</strong> [Applicant's Name]</p>
+    
+    <p>Dear <strong>[Applicant's Name]</strong>,</p>
+    
+    <p>We are absolutely thrilled to offer you an internship position at <strong>NextGenZ Tech</strong>! We believe that your passion, skills, and drive perfectly align with our mission of empowering the next generation through real-world experience and industry-oriented projects.</p>
+
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Position</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">[Internship Role, e.g., Web Developer Intern]</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Start Date</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">[Start Date]</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Duration</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">[e.g., 3-6 Months]</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Location</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Remote</td>
+        </tr>
+    </table>
+
+    <h3 style="margin-top: 30px;">Stipend & Performance Rewards</h3>
+    <p>This internship is designed to provide you with hands-on mentorship, industry-relevant projects, and exceptional learning opportunities. Furthermore, as part of our performance reward program, the <strong>Top Performer</strong> will be awarded a special stipend at the conclusion of the internship!</p>
+
+    <h3>Terms & Conditions</h3>
+    <p>During your time with us, you will have access to confidential information and intellectual property belonging to NextGenZ Tech. By accepting this offer, you agree to maintain the strict confidentiality of our projects and data.</p>
+    
+    <p>Please review this offer and sign below to indicate your acceptance. We are incredibly excited to welcome you to the team and can't wait to build the future together. 🚀</p>
+
+    <br><br><br>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 50%;">
+                <div style="border-bottom: 1px solid #000; width: 80%; height: 30px;">
+                    <span style="font-family: 'Brush Script MT', cursive; font-size: 24px;">Patel Arya</span>
+                </div>
+                <strong>Patel Arya</strong><br>
+                CEO / Founder<br>
+                NextGenZ Tech
+            </td>
+            <td style="width: 50%;">
+                <div style="border-bottom: 1px solid #000; width: 80%; height: 30px;"></div>
+                <strong>[Applicant's Name]</strong><br>
+                Intern Signature & Date
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
