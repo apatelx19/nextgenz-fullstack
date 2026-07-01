@@ -9,6 +9,7 @@ const interviewScheduledTemplate = require('../templates/interviewScheduledTempl
 const selectedTemplate = require('../templates/selectedTemplate');
 const rejectedTemplate = require('../templates/rejectedTemplate');
 const adminNotificationTemplate = require('../templates/adminNotificationTemplate');
+const offerLetterService = require('./offerLetterService');
 
 class EmailService {
   constructor() {
@@ -24,7 +25,7 @@ class EmailService {
     this.companyEmail = process.env.COMPANY_EMAIL || 'admin@nextgenz.tech';
   }
 
-  async sendEmail(to, subject, htmlContent) {
+  async sendEmail(to, subject, htmlContent, attachments = []) {
     try {
       if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
         console.warn('⚠️  Email skipped: Missing EMAIL_USER or EMAIL_PASS in environment variables.');
@@ -35,7 +36,8 @@ class EmailService {
         from: `"${this.companyName}" <${process.env.EMAIL_USER}>`,
         to,
         subject,
-        html: htmlContent
+        html: htmlContent,
+        attachments: attachments
       };
 
       const info = await this.transporter.sendMail(mailOptions);
@@ -67,6 +69,7 @@ class EmailService {
     const status = applicationData.status;
     let subject = '';
     let html = '';
+    let attachments = [];
 
     switch(status) {
       case 'Pending':
@@ -88,6 +91,16 @@ class EmailService {
       case 'Selected':
         subject = `Congratulations! You have been Selected | ${this.companyName}`;
         html = selectedTemplate(applicationData);
+        try {
+          const pdfBuffer = await offerLetterService.generateOfferLetter(applicationData);
+          attachments.push({
+            filename: 'NextGenZ_Offer_Letter.pdf',
+            content: pdfBuffer,
+            contentType: 'application/pdf'
+          });
+        } catch (error) {
+          console.error('Failed to generate offer letter PDF:', error);
+        }
         break;
       case 'Rejected':
         subject = `Application Update | ${this.companyName}`;
@@ -97,7 +110,7 @@ class EmailService {
         return false;
     }
 
-    return this.sendEmail(applicationData.email, subject, html);
+    return this.sendEmail(applicationData.email, subject, html, attachments);
   }
 }
 
