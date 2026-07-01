@@ -222,10 +222,21 @@ proceedPaymentBtn.addEventListener('click', () => {
     const upiMobileBtn = document.getElementById("upi-mobile-button");
     if (upiMobileBtn) upiMobileBtn.href = upiString;
     
-    // Generate QR using API
-    const qrApiUrl = `https://quickchart.io/qr?text=${encodeURIComponent(upiString)}&size=250`;
-    const qrImage = document.getElementById("upi-qr-image");
-    if (qrImage) qrImage.src = qrApiUrl;
+    // Generate QR using local library (Bypass Adblockers)
+    const qrContainer = document.getElementById("upi-qr-container");
+    if (qrContainer) {
+      // Clear previous QR if any
+      qrContainer.innerHTML = "";
+      // Create new QR Code
+      new QRCode(qrContainer, {
+        text: upiString,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    }
     
     // Show UPI Modal after a tiny delay to prevent browser layout crash
     setTimeout(() => {
