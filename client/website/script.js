@@ -223,12 +223,12 @@ form.addEventListener("submit", (e) => {
   try {
 
     // Calculate price based on plan
-    let amount = 299; // default Gold
+    let amount = 1999; // default Gold
     const planEl = document.getElementById("selectedPlan");
-    if (planEl) {
-      const plan = planEl.value;
-      if (plan === "Normal") amount = 199;
-      else if (plan === "Premium") amount = 399;
+    const plan = planEl ? planEl.value : null;
+    if (plan) {
+      if (plan === "Normal") amount = 999;
+      else if (plan === "Premium") amount = 2999;
     }
     
     const upiAmountEl = document.getElementById("upi-amount");
