@@ -185,11 +185,10 @@ body.bg-dark-active header .hamburger span {
 }
 
 .logo img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--ink-light);
-    object-fit: cover;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    object-fit: contain;
 }
 
 .logo h2 {
