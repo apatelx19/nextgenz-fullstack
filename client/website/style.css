@@ -1639,10 +1639,7 @@ body.bg-dark-active .modal-content {
 
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1024px) {
-    .founder-container {
-        grid-template-columns: 300px 1fr;
-        gap: 40px;
-    }
+
     .footer-grid {
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
         gap: 30px;
@@ -1693,15 +1690,7 @@ body.bg-dark-active .modal-content {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .founder-container {
-        grid-template-columns: 1fr;
-        text-align: left;
-        gap: 40px;
-    }
-    
-    .founder-image {
-        max-width: 360px;
-    }
+
     
     .footer-grid {
         grid-template-columns: 1fr 1fr;
