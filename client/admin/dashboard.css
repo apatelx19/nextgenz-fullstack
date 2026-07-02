@@ -479,7 +479,15 @@ body {
   padding: 10px 14px;
   border-radius: 4px;
   font-size: 0.85rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.controls select option {
+  background: #1a1a2e;
+  color: #ffffff;
 }
 
 .controls input[type="text"] {

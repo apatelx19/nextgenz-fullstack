@@ -22,7 +22,7 @@ class OfferLetterService {
         const path = require('path');
         const msmePath = path.join(__dirname, '../assets/msme_logo.png');
         const signaturePath = path.join(__dirname, '../assets/signature.png');
-        const logoPath = path.join(__dirname, '../../client/website/assets/brand_logo.jpg');
+        const logoPath = path.join(__dirname, '../assets/brand_logo.png');
 
         // ========== WATERMARK (drawn first so it sits behind everything) ==========
         doc.save();
