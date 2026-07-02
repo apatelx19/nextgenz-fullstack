@@ -472,6 +472,13 @@
 
       <textarea id="whyJoin" name="whyJoin" rows="5" placeholder="Why do you want to join NextGenZ Tech?" required style="margin-top: 8px;"></textarea>
 
+      <div class="terms-checkbox-container">
+          <input type="checkbox" id="agreeTerms" required>
+          <label for="agreeTerms">
+              I have read and agree to the <a href="#" class="policy-link" data-modal="privacyModal">Privacy Policy</a> & <a href="#" class="policy-link" data-modal="termsModal">Terms & Conditions</a>.
+          </label>
+      </div>
+
       <button type="submit" id="submit-button">
           <span id="button-text">Apply Now 🚀</span>
       </button>
@@ -700,8 +707,8 @@
         <div class="contact-bottom-row">
           <p>&copy; 2026 NextGenZ Tech. All Rights Reserved.</p>
           <div class="bottom-links">
-            <a href="#" id="privacy-link-footer">Privacy Policy</a>
-            <a href="#" id="terms-link-footer">Terms & Conditions</a>
+            <a href="#" class="policy-link" data-modal="privacyModal">Privacy Policy</a>
+            <a href="#" class="policy-link" data-modal="termsModal">Terms & Conditions</a>
           </div>
           <p>Made with ❤️ in India</p>
         </div>
@@ -710,16 +717,15 @@
   </section>
 
   <!-- Privacy Policy Modal -->
-  <div id="privacy-modal" class="modal-overlay">
-    <div class="modal-content glass-form">
-      <h2>Privacy Policy & Internship Terms</h2>
-      <div class="modal-body">
-        <p><strong>Effective Date:</strong> June 26, 2026</p>
-        <p>Welcome to <strong>NextGenZ Tech</strong>. We are committed to protecting your privacy and ensuring transparency in our internship programs.</p>
-        <p>By using our website, registering for our internship programs, or accessing our services, you agree to the terms outlined below.</p>
-        
+  <div id="privacyModal" class="custom-modal-overlay">
+    <div class="custom-modal-content">
+      <button class="custom-modal-close" aria-label="Close">&times;</button>
+      <div class="custom-modal-header">
+        <h2>Privacy Policy</h2>
+        <p class="modal-date">Effective Date: June 26, 2026</p>
+      </div>
+      <div class="custom-modal-body">
         <h3>1. Information We Collect</h3>
-        <p>When you apply for our internship programs, we may collect:</p>
         <ul>
           <li>Full Name</li>
           <li>Email Address</li>
@@ -729,86 +735,88 @@
           <li>Payment Details</li>
           <li>Internship Performance Data</li>
         </ul>
-        <p>This information is collected solely for internship management, communication, certification, and program improvement purposes.</p>
+        <p>This information is used only for internship management, communication, certification, and service improvement.</p>
         
         <h3>2. How We Use Your Information</h3>
-        <p>We use your information to:</p>
         <ul>
-          <li>Process internship applications.</li>
-          <li>Communicate important updates and announcements.</li>
-          <li>Issue internship certificates and offer letters.</li>
-          <li>Evaluate intern performance.</li>
-          <li>Improve our services and programs.</li>
-          <li>Provide career guidance and support.</li>
+          <li>Process internship applications</li>
+          <li>Communicate updates</li>
+          <li>Issue certificates</li>
+          <li>Evaluate performance</li>
+          <li>Improve services</li>
+          <li>Career guidance</li>
         </ul>
-        <p>We do not sell, rent, or share your personal information with unauthorized third parties.</p>
+        <p><strong>We never sell or share personal information with unauthorized third parties.</strong></p>
         
-        <h3>3. Internship Enrollment Plans</h3>
-        <div class="privacy-content">
-        <h4>Normal Plan – ₹199</h4>
-        <ul>
-          <li>Internship enrollment access.</li>
-          <li>Internship completion certificate upon successful completion of the program.</li>
-        </ul>
-        <h4>Gold Plan – ₹299</h4>
-        <ul>
-          <li>Internship enrollment access.</li>
-          <li>Internship completion certificate.</li>
-          <li>Eligibility for stipend consideration.</li>
-        </ul>
-        <p><strong>Important:</strong> The stipend amount of <strong>₹3,000</strong> is awarded only to the <strong>Top Performer(s)</strong> of the respective batch. Payment of the Gold Plan fee does not guarantee a stipend.</p>
-        <h4>Premium Plan – ₹399</h4>
-        <ul>
-          <li>Internship enrollment access.</li>
-          <li>Internship completion certificate.</li>
-          <li>Career guidance and mentorship support.</li>
-          <li>Eligibility for stipend consideration.</li>
-        </ul>
-        <p><strong>Important:</strong> The stipend amount of <strong>₹5,000</strong> is awarded only to the <strong>Top Performer(s)</strong> of the respective batch. Payment of the Premium Plan fee does not guarantee a stipend.</p>
+        <h3>3. Data Security</h3>
+        <p>We implement reasonable security measures to protect your personal information, however, no online platform can guarantee complete security.</p>
         
-        <h3>4. Stipend Policy</h3>
-        <ul>
-          <li>Stipends are <strong>performance-based rewards</strong>.</li>
-          <li>Stipends are awarded only to the <strong>Top Performer(s)</strong> of each internship batch.</li>
-          <li>Not all interns are eligible to receive stipends.</li>
-          <li>Selection is based on factors including project quality, attendance, consistency, communication, innovation, and overall contribution.</li>
-          <li>The company's decision regarding stipend selection shall be final and binding.</li>
-        </ul>
+        <h3>4. Changes to this Policy</h3>
+        <p>NextGenZ Tech may update this policy without prior notice.</p>
         
-        <h3>5. Refund Policy</h3>
-        <p>All enrollment fees are generally <strong>non-refundable</strong> once the internship registration has been successfully processed.</p>
-        <p>Refund requests, if any, will be reviewed on a case-by-case basis solely at the discretion of NextGenZ Tech.</p>
-        
-        <h3>6. Certificates</h3>
-        <p>Internship certificates will only be issued to interns who:</p>
-        <ul>
-          <li>Successfully complete assigned tasks and projects.</li>
-          <li>Maintain satisfactory participation during the internship period.</li>
-          <li>Follow all internship guidelines and code of conduct.</li>
-        </ul>
-        
-        <h3>7. Data Security</h3>
-        <p>We implement reasonable security measures to protect your personal information. However, no online platform can guarantee complete security.</p>
-        
-        <h3>8. Changes to This Policy</h3>
-        <p>NextGenZ Tech reserves the right to modify or update this Privacy Policy and Internship Terms at any time without prior notice.</p>
-        
-        <h3>9. Contact Us</h3>
-        <p>For any questions regarding this Privacy Policy or internship programs, please contact us:</p>
-        <p><strong>Email:</strong> <a href="mailto:nextgenztech.admin@gmail.com">nextgenztech.admin@gmail.com</a></p>
-        <p>© 2026 NextGenZ Tech. All Rights Reserved.</p>
-      </div>
-      
-      <div class="modal-footer">
-        <label class="privacy-checkbox-label">
-          <input type="checkbox" id="privacy-agree"> I have read and agree to the Privacy Policy & Internship Terms
-        </label>
-        <div class="modal-actions">
-          <button type="button" id="cancel-payment" class="btn" style="background: transparent; border: 1px solid var(--text-muted);">Cancel</button>
-          <button type="button" id="proceed-payment" class="btn btn-disabled" disabled>Proceed to Payment</button>
-        </div>
+        <h3>5. Contact</h3>
+        <p>Email: <a href="mailto:nextgenztech.admin@gmail.com">nextgenztech.admin@gmail.com</a></p>
       </div>
     </div>
+  </div>
+
+  <!-- Terms & Conditions Modal -->
+  <div id="termsModal" class="custom-modal-overlay">
+    <div class="custom-modal-content">
+      <button class="custom-modal-close" aria-label="Close">&times;</button>
+      <div class="custom-modal-header">
+        <h2>Terms & Conditions</h2>
+        <p class="modal-date">Effective Date: June 26, 2026</p>
+      </div>
+      <div class="custom-modal-body">
+        <h3>Internship Plans</h3>
+        <h4>Normal Plan — ₹199</h4>
+        <ul>
+          <li>Internship access</li>
+          <li>Completion certificate</li>
+        </ul>
+        
+        <h4>Gold Plan — ₹299</h4>
+        <ul>
+          <li>Internship access</li>
+          <li>Certificate</li>
+          <li>Eligible for ₹3000 Top Performer stipend</li>
+        </ul>
+        <p class="modal-important"><strong>Important:</strong> The stipend is awarded only to the Top Performer(s). Purchasing this plan does not guarantee a stipend.</p>
+        
+        <h4>Premium Plan — ₹399</h4>
+        <ul>
+          <li>Internship access</li>
+          <li>Certificate</li>
+          <li>Career Guidance</li>
+          <li>Eligible for ₹5000 Top Performer stipend</li>
+        </ul>
+        <p class="modal-important"><strong>Important:</strong> The stipend is performance-based and not guaranteed.</p>
+        
+        <h3>Stipend Policy</h3>
+        <p>Stipends are awarded only to Top Performer(s).</p>
+        <p>Selection depends on:</p>
+        <ul>
+          <li>Performance</li>
+          <li>Attendance</li>
+          <li>Communication</li>
+          <li>Innovation</li>
+          <li>Project Quality</li>
+        </ul>
+        <p>Company decision is final.</p>
+        
+        <h3>Refund Policy</h3>
+        <p>Enrollment fees are generally non-refundable.</p>
+        <p>Refunds are reviewed only at the company's discretion.</p>
+        
+        <h3>Certificates</h3>
+        <p>Certificates are issued only after:</p>
+        <ul>
+          <li>Successful completion</li>
+          <li>Task completion</li>
+          <li>Following internship guidelines</li>
+        </ul>
+      </div>
     </div>
   </div>
 

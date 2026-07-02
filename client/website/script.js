@@ -154,30 +154,53 @@ async function uploadResumeToServer(file) {
   });
 }
 
-// Privacy Modal Logic
-const privacyCheckbox = document.getElementById('privacy-agree');
-const proceedPaymentBtn = document.getElementById('proceed-payment');
-const cancelPaymentBtn = document.getElementById('cancel-payment');
-const privacyModal = document.getElementById('privacy-modal');
+// Custom Modals Logic
+const modalTriggers = document.querySelectorAll('.modal-trigger, .policy-link');
+const customModals = document.querySelectorAll('.custom-modal-overlay');
+const closeButtons = document.querySelectorAll('.custom-modal-close');
 
-privacyCheckbox.addEventListener('change', (e) => {
-  if (e.target.checked) {
-    proceedPaymentBtn.disabled = false;
-    proceedPaymentBtn.classList.remove('btn-disabled');
-  } else {
-    proceedPaymentBtn.disabled = true;
-    proceedPaymentBtn.classList.add('btn-disabled');
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal() {
+  customModals.forEach(modal => {
+    modal.classList.remove('show');
+  });
+  document.body.style.overflow = '';
+}
+
+modalTriggers.forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    const modalId = trigger.getAttribute('data-modal');
+    openModal(modalId);
+  });
+});
+
+closeButtons.forEach(btn => {
+  btn.addEventListener('click', closeModal);
+});
+
+customModals.forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
   }
 });
 
-cancelPaymentBtn.addEventListener('click', () => {
-  privacyModal.classList.remove('show');
-  privacyCheckbox.checked = false;
-  proceedPaymentBtn.disabled = true;
-  proceedPaymentBtn.classList.add('btn-disabled');
-});
-
-// Form Submit - Shows Modal First
+// Form Submit - Shows UPI Modal
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -190,14 +213,15 @@ form.addEventListener("submit", (e) => {
     alert("⚠️ Please upload your resume (PDF only).");
     return;
   }
+  
+  const agreeTerms = document.getElementById('agreeTerms');
+  if (agreeTerms && !agreeTerms.checked) {
+    alert("⚠️ Please agree to the Privacy Policy & Terms & Conditions.");
+    return;
+  }
 
-  privacyModal.classList.add('show');
-});
-
-proceedPaymentBtn.addEventListener('click', () => {
   try {
-    privacyModal.classList.remove('show');
-    
+
     // Calculate price based on plan
     let amount = 299; // default Gold
     const planEl = document.getElementById("selectedPlan");
