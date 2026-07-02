@@ -780,4 +780,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Star Rating Logic
+  const starRating = document.getElementById('starRating');
+  const reviewRatingInput = document.getElementById('reviewRating');
+
+  if (starRating && reviewRatingInput) {
+    const stars = starRating.querySelectorAll('i');
+
+    function updateStars(rating) {
+      stars.forEach(s => {
+        if (parseInt(s.getAttribute('data-rating')) <= rating) {
+          s.style.color = '#F5A623';
+        } else {
+          s.style.color = '#DDDDDD';
+        }
+      });
+    }
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        reviewRatingInput.value = rating;
+        updateStars(rating);
+      });
+
+      star.addEventListener('mouseover', () => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        updateStars(rating);
+      });
+    });
+
+    starRating.addEventListener('mouseout', () => {
+      const currentRating = parseInt(reviewRatingInput.value) || 5;
+      updateStars(currentRating);
+    });
+    
+    // Set initial state
+    const initialRating = parseInt(reviewRatingInput.value) || 5;
+    updateStars(initialRating);
+  }
 });

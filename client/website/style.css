@@ -1840,3 +1840,15 @@ body.bg-dark-active .modal-content {
         font-size: 1.8rem;
     }
 }
+
+/* Star Rating */
+.star-rating i {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #F5A623;
+    transition: color 0.2s ease, transform 0.2s ease;
+    margin-right: 4px;
+}
+.star-rating i:hover {
+    transform: scale(1.1);
+}
