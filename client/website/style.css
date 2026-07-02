@@ -495,24 +495,7 @@ body.bg-dark-active .logo-msme {
     color: var(--text-secondary);
 }
 
-/* Stipend Info Layout */
-.stipend {
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    padding: 60px;
-    background-color: var(--card-bg);
-}
 
-.stipend h2 {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-}
-
-.stipend p {
-    line-height: 1.8;
-}
 
 /* Testimonials Accordion / Carousel slider */
 .carousel-container {
