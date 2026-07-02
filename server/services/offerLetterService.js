@@ -37,36 +37,38 @@ class OfferLetterService {
         doc.opacity(1); // reset opacity for all subsequent content
 
         // ========== 1. Header & Branding ==========
+        // All elements aligned within a header band (y: 40 to 90)
+        const headerTop = 40;
         
-        // Company Logo (Top Left)
+        // Company Logo (Left)
         try {
-          doc.image(logoPath, 50, 35, { width: 50, height: 50 });
+          doc.image(logoPath, 50, headerTop, { height: 45 });
         } catch (e) {
           console.error("Missing brand logo", e);
         }
 
+        // Company Name (next to logo)
         doc.fillColor('#FF4D00')
-           .fontSize(28)
+           .fontSize(22)
            .font('Helvetica-Bold')
-           .text('NextGenZ Tech', 110, 50, { align: 'left' });
-           
-        doc.moveDown(0.2);
+           .text('NextGenZ Tech', 100, headerTop + 4);
         
+        // Tagline (below company name)
         doc.fillColor('#444444')
-           .fontSize(12)
+           .fontSize(10)
            .font('Helvetica')
-           .text('Empowering the Next Generation of Developers', 110, 85, { align: 'left' });
+           .text('Empowering the Next Generation of Developers', 100, headerTop + 30);
            
-        // MSME Badge (Top Right)
+        // MSME Badge (Right, vertically centered with header)
         try {
-          doc.image(msmePath, 400, 40, { width: 140 });
+          doc.image(msmePath, 430, headerTop, { height: 48 });
         } catch (e) {
           console.error("Missing MSME logo", e);
         }
            
         // Separator line
-        doc.moveTo(50, 130)
-           .lineTo(545, 130)
+        doc.moveTo(50, headerTop + 60)
+           .lineTo(545, headerTop + 60)
            .strokeColor('#FF4D00')
            .lineWidth(2)
            .stroke();
@@ -74,7 +76,7 @@ class OfferLetterService {
         doc.moveDown(2);
 
         // ========== 2. Date & Salutation ==========
-        doc.y = 170;
+        doc.y = 140;
         const currentDate = new Date().toLocaleDateString('en-US', {
           year: 'numeric', month: 'long', day: 'numeric'
         });
