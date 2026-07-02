@@ -1835,3 +1835,43 @@ body.bg-dark-active .modal-content {
 .star-rating i:hover {
     transform: scale(1.1);
 }
+
+/* Theme Swap Specific Overrides */
+
+/* Section 05: Student Feedback (now bg-light) */
+#testimonials.bg-light .testimonial-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    padding: 24px;
+    border-radius: 12px;
+}
+#testimonials.bg-light .stars {
+    color: #F5A623;
+}
+
+/* Section 06: Submit Review (now bg-dark) */
+#leave-review.bg-dark .form input::placeholder,
+#leave-review.bg-dark .form textarea::placeholder {
+    color: #888888;
+    opacity: 1;
+}
+
+/* Section 07: Apply Now (now bg-light) */
+#apply.bg-light .glass-form {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+#apply.bg-light .form input,
+#apply.bg-light .form select,
+#apply.bg-light .form textarea {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.15);
+    color: #111111;
+}
+#apply.bg-light .form input::placeholder,
+#apply.bg-light .form textarea::placeholder {
+    color: #666666;
+    opacity: 0.8;
+}
