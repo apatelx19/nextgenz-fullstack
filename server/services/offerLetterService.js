@@ -42,22 +42,22 @@ class OfferLetterService {
         
         // Company Logo (Left)
         try {
-          doc.image(logoPath, 50, headerTop, { height: 45 });
+          doc.image(logoPath, 50, headerTop, { height: 55 });
         } catch (e) {
           console.error("Missing brand logo", e);
         }
 
-        // Company Name (next to logo)
+        // Company Name (next to logo, vertically centered)
         doc.fillColor('#FF4D00')
            .fontSize(22)
            .font('Helvetica-Bold')
-           .text('NextGenZ Tech', 100, headerTop + 4);
+           .text('NextGenZ Tech', 115, headerTop + 10);
         
         // Tagline (below company name)
         doc.fillColor('#444444')
            .fontSize(10)
            .font('Helvetica')
-           .text('Empowering the Next Generation of Developers', 100, headerTop + 30);
+           .text('Govt. Registered (MSME)', 115, headerTop + 36);
            
         // MSME Badge (Right, vertically centered with header)
         try {
@@ -67,8 +67,8 @@ class OfferLetterService {
         }
            
         // Separator line
-        doc.moveTo(50, headerTop + 60)
-           .lineTo(545, headerTop + 60)
+        doc.moveTo(50, headerTop + 65)
+           .lineTo(545, headerTop + 65)
            .strokeColor('#FF4D00')
            .lineWidth(2)
            .stroke();
