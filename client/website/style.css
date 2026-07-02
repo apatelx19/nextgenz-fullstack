@@ -894,128 +894,6 @@ body.bg-dark-active .carousel-btn,
     width: 0;
 }
 
-/* Founder Section */
-.founder-section {
-    position: relative;
-    padding: 120px 8%;
-    border-bottom: 1px solid var(--border);
-}
-
-.founder-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.founder-image {
-    position: relative;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    border: 1px solid var(--border);
-}
-
-.founder-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.founder-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.founder-content h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    line-height: 0.9;
-    margin-bottom: 8px;
-}
-
-.founder-content h3 {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 24px;
-}
-
-.founder-content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 32px;
-}
-
-.founder-stats {
-    display: flex;
-    gap: 48px;
-    margin-bottom: 36px;
-}
-
-.founder-stats div {
-    display: flex;
-    flex-direction: column;
-}
-
-.founder-stats h2 {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    color: var(--primary);
-    line-height: 1;
-}
-
-.founder-stats span {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.founder-buttons {
-    display: flex;
-    gap: 16px;
-}
-
-.founder-buttons .btn-primary {
-    background-color: var(--primary);
-    color: #FAF9F5;
-    padding: 12px 28px;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 0.5rem;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-}
-
-.founder-buttons .btn-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 6px 6px 0 var(--shadow-color);
-}
-
-.founder-buttons .btn-secondary {
-    padding: 12px 28px;
-    border: 1px solid var(--btn-neutral-border);
-    color: var(--btn-neutral-text);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    border-radius: 0.5rem;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-}
-
-.founder-buttons .btn-secondary:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-4px);
-}
-
 /* FAQ Accordion layout */
 .faq-container {
     max-width: 800px;
@@ -1336,11 +1214,34 @@ body.bg-dark-active .carousel-btn,
     background-color: #EAEAEA;
 }
 
-.founder-buttons {
+.founder-team-names {
     display: flex;
-    gap: 16px;
+    justify-content: center;
+    gap: 48px;
     width: 100%;
     margin-bottom: 24px;
+}
+
+.founder-team-member {
+    text-align: center;
+}
+
+.founder-team-label {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.founder-team-person {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 400;
 }
 
 .founder-quote {
@@ -1420,7 +1321,7 @@ body.bg-dark-active .carousel-btn,
     opacity: 0;
 }
 
-.contact-premium.revealed .founder-buttons {
+.contact-premium.revealed .founder-team-names {
     animation: fadeUpSpring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.5s;
     opacity: 0;
@@ -1449,6 +1350,10 @@ body.bg-dark-active .carousel-btn,
         width: 150px;
         height: 150px;
     }
+    .founder-team-names {
+        flex-direction: column;
+        gap: 24px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1465,9 +1370,7 @@ body.bg-dark-active .carousel-btn,
         width: 120px;
         height: 120px;
     }
-    .founder-buttons {
-        flex-direction: column;
-    }
+
     .contact-bottom-row {
         flex-direction: column;
         text-align: center;
