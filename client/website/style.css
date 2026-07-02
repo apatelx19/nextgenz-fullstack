@@ -1233,116 +1233,120 @@ body.bg-dark-active .carousel-btn,
     color: #FF5A1F;
 }
 
-/* Brand Card */
-.brand-card {
+/* Founder Card */
+.founder-card-premium {
     background: #FFFFFF;
     border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-    border: 1px solid #EAEAEA;
-    height: 100%;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    border: 1px solid #ECECEC;
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     display: flex;
     flex-direction: column;
-}
-
-.brand-header {
-    display: flex;
     align-items: center;
-    gap: 16px;
+}
+
+.founder-card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 56px rgba(0,0,0,0.12);
+}
+
+.founder-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #FFFFFF;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     margin-bottom: 24px;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.brand-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    object-fit: contain;
+.founder-card-premium:hover .founder-avatar {
+    transform: scale(1.03);
 }
 
-.brand-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin: 0;
-}
-
-.brand-desc {
-    color: #666666;
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-.brand-links-section h4, .brand-social-section h4 {
+.founder-label {
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: #111111;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.quick-links-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 40px;
-}
-
-.quick-links-grid a {
-    color: #666666;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    position: relative;
-    display: inline-block;
-    width: fit-content;
-    transition: color 0.3s ease;
-}
-
-.quick-links-grid a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #FF5A1F;
-    transition: width 0.3s ease;
-}
-
-.quick-links-grid a:hover {
     color: #FF5A1F;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
-.quick-links-grid a:hover::after {
-    width: 100%;
+.founder-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: #111111;
 }
 
-.brand-social-buttons {
-    display: flex;
-    gap: 16px;
+.founder-subtitle {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 24px;
+    line-height: 1.4;
 }
 
-.brand-social-buttons .social-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #F8F9FA;
+.founder-description {
+    font-size: 0.95rem;
+    color: #444444;
+    line-height: 1.6;
+    max-width: 90%;
+    margin: 0 auto 32px;
+}
+
+.founder-stats {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #111111;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border: 1px solid #EAEAEA;
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    gap: 32px;
+    margin-bottom: 32px;
 }
 
-.brand-social-buttons .social-btn:hover {
-    background: #FF5A1F;
-    color: #FFFFFF;
-    border-color: #FF5A1F;
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(255, 90, 31, 0.2);
+.founder-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FF5A1F;
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999999;
+    letter-spacing: 0.1em;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: #EAEAEA;
+}
+
+.founder-buttons {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.founder-quote {
+    font-size: 0.9rem;
+    color: #999999;
+    margin: 0;
 }
 
 /* Bottom Row */
@@ -1388,11 +1392,38 @@ body.bg-dark-active .carousel-btn,
 .contact-premium.revealed .contact-card:nth-child(3) { animation-delay: 0.3s; }
 .contact-premium.revealed .contact-card:nth-child(4) { animation-delay: 0.4s; }
 
-.contact-premium.revealed .brand-card {
-    animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.contact-premium.revealed .founder-avatar {
+    animation: fadeScaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.contact-premium.revealed .founder-label,
+.contact-premium.revealed .founder-name,
+.contact-premium.revealed .founder-subtitle,
+.contact-premium.revealed .founder-description,
+.contact-premium.revealed .founder-quote {
+    animation: fadeUpSpring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.contact-premium.revealed .founder-stat:nth-child(1) {
+    animation: fadeUpSpring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.3s;
     opacity: 0;
-    transform: translateX(40px);
+}
+.contact-premium.revealed .founder-stat:nth-child(3) {
+    animation: fadeUpSpring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.contact-premium.revealed .founder-buttons {
+    animation: fadeUpSpring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 
 @keyframes fadeUpSpring {
@@ -1400,9 +1431,9 @@ body.bg-dark-active .carousel-btn,
     100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideInRight {
-    0% { opacity: 0; transform: translateX(40px); }
-    100% { opacity: 1; transform: translateX(0); }
+@keyframes fadeScaleIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 /* Responsive */
@@ -1414,6 +1445,10 @@ body.bg-dark-active .carousel-btn,
     .contact-left .contact-subtitle {
         max-width: 100%;
     }
+    .founder-avatar {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1423,8 +1458,15 @@ body.bg-dark-active .carousel-btn,
     .contact-cards-grid {
         grid-template-columns: 1fr;
     }
-    .brand-card {
+    .founder-card-premium {
         padding: 24px;
+    }
+    .founder-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    .founder-buttons {
+        flex-direction: column;
     }
     .contact-bottom-row {
         flex-direction: column;
