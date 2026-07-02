@@ -1138,121 +1138,302 @@ body.bg-dark-active .carousel-btn,
 }
 
 /* Contact layout */
-.contact-box {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+/* ========================================================================= */
+/*                   PREMIUM CONTACT SECTION (REPLACES FOOTER)               */
+/* ========================================================================= */
+.contact-premium {
+    padding: 120px 8% !important;
+    background: #FFFFFF !important;
+    color: #111111;
 }
 
-.contact-box a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.25rem;
-    font-weight: 700;
-    padding: 16px 32px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
+.contact-premium-container {
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
-.contact-box a:hover {
-    color: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-4px);
-    box-shadow: 6px 6px 0 var(--primary);
-}
-
-/* Footer Section */
-footer {
-    background: var(--paper-dark);
-    color: var(--ink-dark);
-    border-top: 1px solid var(--border);
-    padding: 80px 8% 40px;
-}
-
-.footer-grid {
-    max-width: 1300px;
-    margin: 0 auto 60px;
+.contact-grid-premium {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 45% 55%;
+    gap: 80px;
+    margin-bottom: 64px;
 }
 
-.footer-col {
+.contact-left .contact-subtitle {
+    font-size: 1.1rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.contact-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.contact-card {
+    background: #FFFFFF;
+    border-radius: 18px;
+    border: 1px solid #EAEAEA;
+    padding: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.footer-col h4 {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+.contact-card:hover {
+    transform: translateY(-8px);
+    border-color: #FF5A1F;
+    box-shadow: 0 16px 48px rgba(255, 90, 31, 0.15);
+}
+
+.card-icon {
+    font-size: 24px;
+    color: #FF5A1F;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
     font-weight: 700;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
 }
 
-.footer-col p {
+.card-content p {
     font-size: 0.95rem;
-    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    word-break: break-word;
 }
 
-.footer-col a {
-    color: var(--ink-dark);
+.social-links-inline {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-links-inline a {
+    color: #666666;
     text-decoration: none;
     font-size: 0.95rem;
-    transition: all 0.2s ease;
-    align-self: flex-start;
+    transition: color 0.2s ease;
 }
 
-.footer-col a:hover {
-    color: var(--primary);
-    transform: translateX(4px);
+.social-links-inline a:hover {
+    color: #FF5A1F;
 }
 
-.footer-social {
+/* Brand Card */
+.brand-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    border: 1px solid #EAEAEA;
+    height: 100%;
     display: flex;
-    gap: 12px;
+    flex-direction: column;
 }
 
-.footer-social a {
-    width: 40px;
-    height: 40px;
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.brand-desc {
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.brand-links-section h4, .brand-social-section h4 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: #111111;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.quick-links-grid a {
+    color: #666666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    transition: color 0.3s ease;
+}
+
+.quick-links-grid a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #FF5A1F;
+    transition: width 0.3s ease;
+}
+
+.quick-links-grid a:hover {
+    color: #FF5A1F;
+}
+
+.quick-links-grid a:hover::after {
+    width: 100%;
+}
+
+.brand-social-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.brand-social-buttons .social-btn {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
+    background: #F8F9FA;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--ink-dark);
-    transition: all 0.3s ease;
+    color: #111111;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: 1px solid #EAEAEA;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.footer-social a:hover {
-    background: var(--primary);
-    color: #FAF9F5;
-    border-color: var(--primary);
-    transform: translateY(-3px);
+.brand-social-buttons .social-btn:hover {
+    background: #FF5A1F;
+    color: #FFFFFF;
+    border-color: #FF5A1F;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 90, 31, 0.2);
 }
 
-.footer-col .logo img {
-    border-color: var(--primary);
+/* Bottom Row */
+.contact-divider {
+    border: none;
+    border-top: 1px solid #EAEAEA;
+    margin-bottom: 32px;
 }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-top: 30px;
-    text-align: center;
+.contact-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.footer-bottom p {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
+.contact-bottom-row p, .bottom-links a {
+    font-size: 0.85rem;
+    color: #999999;
+    margin: 0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.bottom-links a:hover {
+    color: #FF5A1F;
+}
+
+/* Staggered Animations */
+.contact-premium.revealed .contact-card {
+    animation: fadeUpSpring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+}
+.contact-premium.revealed .contact-card:nth-child(1) { animation-delay: 0.1s; }
+.contact-premium.revealed .contact-card:nth-child(2) { animation-delay: 0.2s; }
+.contact-premium.revealed .contact-card:nth-child(3) { animation-delay: 0.3s; }
+.contact-premium.revealed .contact-card:nth-child(4) { animation-delay: 0.4s; }
+
+.contact-premium.revealed .brand-card {
+    animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+@keyframes fadeUpSpring {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(40px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-grid-premium {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .contact-left .contact-subtitle {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-premium {
+        padding: 80px 5% !important;
+    }
+    .contact-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .brand-card {
+        padding: 24px;
+    }
+    .contact-bottom-row {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    .bottom-links {
+        justify-content: center;
+    }
 }
 
 /* Privacy Modal overlay and modal content */
