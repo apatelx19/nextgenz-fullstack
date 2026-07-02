@@ -61,7 +61,7 @@ class OfferLetterService {
            
         // MSME Badge (Right, vertically centered with header)
         try {
-          doc.image(msmePath, 430, headerTop, { height: 48 });
+          doc.image(msmePath, 410, headerTop - 8, { height: 65 });
         } catch (e) {
           console.error("Missing MSME logo", e);
         }
