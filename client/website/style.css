@@ -1216,19 +1216,26 @@ body.bg-dark-active .carousel-btn,
 
 .founder-team-names {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 48px;
     width: 100%;
+    margin-top: 32px;
     margin-bottom: 24px;
 }
 
 .founder-team-member {
+    width: 50%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .founder-team-label {
+    white-space: nowrap;
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 18px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--primary);
@@ -1236,11 +1243,13 @@ body.bg-dark-active .carousel-btn,
 }
 
 .founder-team-person {
+    white-space: nowrap;
+    margin-top: 16px;
     font-family: var(--font-mono);
     font-size: 0.9rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink-light);
+    color: #111111;
     font-weight: 400;
 }
 
@@ -1350,9 +1359,11 @@ body.bg-dark-active .carousel-btn,
         width: 150px;
         height: 150px;
     }
-    .founder-team-names {
-        flex-direction: column;
-        gap: 24px;
+    .founder-team-label {
+        font-size: 16px;
+    }
+    .founder-team-person {
+        font-size: 0.85rem;
     }
 }
 
@@ -1369,6 +1380,17 @@ body.bg-dark-active .carousel-btn,
     .founder-avatar {
         width: 120px;
         height: 120px;
+    }
+    
+    .founder-team-names {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .founder-team-member {
+        width: 100%;
+    }
+    .founder-team-person {
+        white-space: normal;
     }
 
     .contact-bottom-row {
